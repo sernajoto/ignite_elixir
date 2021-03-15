@@ -5,10 +5,10 @@ defmodule ReportsGenerator.ParserTest do
 
   describe "parse_file/1" do
     test "parses the file" do
-      file_name = "report_test.csv"
+      filename = "report_test.csv"
 
       response =
-        file_name
+        filename
         |> Parser.parse_file()
         |> Enum.map(& &1)
 
