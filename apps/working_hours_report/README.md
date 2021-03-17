@@ -37,3 +37,7 @@ The return must be in the following format:
     }
 }
 ```
+**Chapter I - Module 2 - Challenge 02**
+
+Like the previous challenge, but using parallelism to process the report.
+Create a new function that receives a list with the names of the `.csv` files that are divided into more than one file.
