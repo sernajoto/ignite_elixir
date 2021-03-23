@@ -1,6 +1,23 @@
 defmodule WorkingHoursReport do
   alias WorkingHoursReport.Parser
 
+  @months [
+    "janeiro",
+    "fevereiro",
+    "março",
+    "abril",
+    "maio",
+    "junho",
+    "julho",
+    "agosto",
+    "setembro",
+    "outubro",
+    "novembro",
+    "dezembro"
+  ]
+
+  @years ["2016", "2017", "2018", "2019", "2020"]
+
   def build(filename) do
     parsed_file = Parser.parse_file(filename)
     report_acc = report_acc(parsed_file)
@@ -16,11 +33,7 @@ defmodule WorkingHoursReport do
       filenames
       |> Task.async_stream(&build/1)
       |> Enum.reduce(
-        %{
-          "all_hours" => %{},
-          "hours_per_month" => %{},
-          "hours_per_year" => %{}
-        },
+        build_report(%{}, %{}, %{}),
         fn {:ok, result}, report -> sum_reports(report, result) end
       )
 
@@ -51,9 +64,7 @@ defmodule WorkingHoursReport do
   end
 
   defp merge_nested_maps(map1, map2) do
-    Map.merge(map1, map2, fn _key, value1, value2 ->
-      Map.merge(value1, value2, fn _key, value1, value2 -> value1 + value2 end)
-    end)
+    Map.merge(map1, map2, fn _key, value1, value2 -> merge_maps(value1, value2) end)
   end
 
   defp sum_hours([name, hours, _day, month, year], %{
@@ -72,15 +83,13 @@ defmodule WorkingHoursReport do
 
   defp report_acc(parsed_file) do
     name_list = index_to_list(parsed_file, 0)
-    month_list = index_to_list(parsed_file, 3)
-    year_list = index_to_list(parsed_file, 4)
 
     all_hours = list_to_acc(name_list)
 
-    all_months = list_to_acc(month_list)
+    all_months = list_to_acc(@months)
     hours_per_month = list_to_acc(name_list, all_months)
 
-    all_years = list_to_acc(year_list)
+    all_years = list_to_acc(@years)
     hours_per_year = list_to_acc(name_list, all_years)
 
     build_report(all_hours, hours_per_month, hours_per_year)
