@@ -8,7 +8,7 @@ defmodule Flightex.Bookings.Booking do
     case Date.from_iso8601(complete_date) do
       {:ok, date} ->
         uuid = UUID.uuid4()
-        {:ok, naive_date_time} = naive_date_time_from_string(date)
+        {:ok, naive_date_time} = naive_date_time_from_date(date)
 
         {:ok,
          %__MODULE__{
@@ -24,7 +24,7 @@ defmodule Flightex.Bookings.Booking do
     end
   end
 
-  defp naive_date_time_from_string(date) do
+  defp naive_date_time_from_date(date) do
     date
     |> NaiveDateTime.new(~T[00:00:00])
   end
