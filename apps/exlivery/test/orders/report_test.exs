@@ -22,9 +22,9 @@ defmodule Exlivery.Orders.ReportTest do
         "12345678900,pizza,1,40.50japonesa,2,20.90,82.30\n" <>
           "12345678900,pizza,1,40.50japonesa,2,20.90,82.30\n"
 
-      Report.create("report_test.csv")
+      Report.create("exlivery_report_test.csv")
 
-      response = File.read!("report_test.csv")
+      response = File.read!("exlivery_report_test.csv")
 
       assert response == expected_response
     end

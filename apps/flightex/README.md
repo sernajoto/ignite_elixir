@@ -32,3 +32,6 @@ user_id1,Vitória,Salvador,2021-03-22 19:29:25.607218
 user_id2,São Paulo,Rio de Janeiro,2021-03-14 12:12:25.607218
 user_id1,São Paulo,Londres,2021-04-18 08:45:25.607218
 ```
+
+**Chapter II - Module 3 - Challenge 03**
+Must create tests for the application you developed in chapter II, module 3, challenges 1 and 2.
