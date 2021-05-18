@@ -16,6 +16,6 @@ defmodule IgniteElixir.MixProject do
   #
   # Run "mix help deps" for examples and options.
   defp deps do
-    [{:decimal, "~> 2.0"}]
+    [{:decimal, "~> 2.0"}, {:jason, "~> 1.0"}]
   end
 end

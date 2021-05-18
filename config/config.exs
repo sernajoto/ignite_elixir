@@ -9,6 +9,10 @@
 # move said applications out of the umbrella.
 import Config
 
+config :phoenix, :json_library, Jason
+
+import_config "../apps/rocklivery/config/config.exs"
+
 # Sample configuration:
 #
 #     config :logger, :console,
