@@ -5,9 +5,14 @@ defmodule Rocklivery.User do
 
   alias Ecto.Changeset
 
+  @derive {Jason.Encoder, only: [:id, :age, :cpf, :address, :email]}
+
   @required_params [:age, :address, :cep, :cpf, :email, :password, :name]
 
+  @update_params @required_params -- [:password]
+
   @primary_key {:id, :binary_id, autogenerate: true}
+
   schema "users" do
     field :age, :integer
     field :address, :string
@@ -21,10 +26,12 @@ defmodule Rocklivery.User do
     timestamps()
   end
 
-  def changeset(params) do
-    %__MODULE__{}
+  def changeset(struct \\ %__MODULE__{}, params) do
+    require_params = if is_nil(struct.id), do: @required_params, else: @update_params
+
+    struct
     |> cast(params, @required_params)
-    |> validate_required(@required_params)
+    |> validate_required(require_params)
     |> validate_length(:password, min: 6)
     |> validate_length(:cep, is: 8)
     |> validate_length(:cpf, is: 11)
