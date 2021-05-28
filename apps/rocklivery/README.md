@@ -2,4 +2,4 @@
 
 **Chapter III - Module 4**
 
-Learning about Phoenix and creating a user CRUD
+Learning about Phoenix and creating a user CRUD.
