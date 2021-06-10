@@ -26,12 +26,18 @@ defmodule Rocklivery.User do
     timestamps()
   end
 
-  def changeset(struct \\ %__MODULE__{}, params) do
-    require_params = if is_nil(struct.id), do: @required_params, else: @update_params
+  def changeset(params) do
+    validate_changeset(%__MODULE__{}, params, @required_params)
+  end
 
+  def changeset(struct, params) do
+    validate_changeset(struct, params, @update_params)
+  end
+
+  defp validate_changeset(struct, params, required_params) do
     struct
     |> cast(params, @required_params)
-    |> validate_required(require_params)
+    |> validate_required(required_params)
     |> validate_length(:password, min: 6)
     |> validate_length(:cep, is: 8)
     |> validate_length(:cpf, is: 11)
