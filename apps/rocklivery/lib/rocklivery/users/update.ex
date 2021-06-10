@@ -12,5 +12,12 @@ defmodule Rocklivery.Users.Update do
     user
     |> User.changeset(params)
     |> Repo.update()
+    |> handle_update()
+  end
+
+  defp handle_update({:ok, %User{}} = result), do: result
+
+  defp handle_update({:error, result}) do
+    {:error, Error.build(:bad_request, result)}
   end
 end

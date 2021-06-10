@@ -6,6 +6,8 @@
     "lib/rocklivery_web.ex",
     "lib/rocklivery_web/gettext.ex",
     "lib/rocklivery_web/endpoint.ex",
-    "lib/rocklivery_web/views/error_helpers.ex"
+    "lib/rocklivery_web/views/error_helpers.ex",
+    "lib/rocklivery_web/router.ex",
+    "lib/rocklivery/application.ex"
   ]
 }
