@@ -11,7 +11,7 @@ import Config
 
 config :phoenix, :json_library, Jason
 
-import_config "../apps/rocklivery/config/config.exs"
+import_config "../apps/exmeal/config/config.exs"
 
 # Sample configuration:
 #
