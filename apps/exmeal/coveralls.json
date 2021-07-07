@@ -1,13 +1,13 @@
 {
   "skip_files": [
     "test/support",
-    "lib/exmeal/channels/user_socket.ex",
+    "lib/exmeal_web/channels/user_socket.ex",
     "lib/exmeal/repo.ex",
-    "lib/exmeal.ex",
-    "lib/exmeal/gettext.ex",
-    "lib/exmeal/endpoint.ex",
-    "lib/exmeal/views/error_helpers.ex",
-    "lib/exmeal/router.ex",
+    "lib/exmeal_web.ex",
+    "lib/exmeal_web/gettext.ex",
+    "lib/exmeal_web/endpoint.ex",
+    "lib/exmeal_web/views/error_helpers.ex",
+    "lib/exmeal_web/router.ex",
     "lib/exmeal/application.ex"
   ]
 }

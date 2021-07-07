@@ -17,7 +17,7 @@ defmodule Rocklivery.Users.UpdateTest do
       assert {:ok, %User{id: _id, age: 25, name: "Sernajoto"}} = response
     end
 
-    test "when the are invalid params, returns an error" do
+    test "when there are invalid params, returns an error" do
       user = insert(:user)
 
       params = %{"id" => user.id, "password" => "123", "age" => 15}
