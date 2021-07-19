@@ -1,0 +1,13 @@
+{
+  "skip_files": [
+    "test/support",
+    "lib/rockelivery_web/channels/user_socket.ex",
+    "lib/rockelivery/repo.ex",
+    "lib/rockelivery_web.ex",
+    "lib/rockelivery_web/gettext.ex",
+    "lib/rockelivery_web/endpoint.ex",
+    "lib/rockelivery_web/views/error_helpers.ex",
+    "lib/rockelivery_web/router.ex",
+    "lib/rockelivery/application.ex"
+  ]
+}

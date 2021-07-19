@@ -1,0 +1,9 @@
+# Rockelivery
+
+**Chapter III - Module 4**
+
+Learning about Phoenix, creating a user CRUD and tests.
+
+**Chapter III - Module 4 - Challenge 02**
+
+Must create other tests with the goal of completing 100% coverage of Excoveralls.
