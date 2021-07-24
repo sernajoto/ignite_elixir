@@ -28,3 +28,18 @@ The application must have routes to meet the requirements of a normal CRUD:
 2. It must be possible to update an already registered meal, returning a `200` status and the updated meal;
 3. It must be possible to display an existing meal, returning a `200` status and the fetched meal;
 4. It must be possible to delete a registered meal, returning a status of `200` or `204`.
+
+**Chapter IV - Module 5 - Challenge 01**
+
+Now the application must have a table of users and these users must have a one-to-many relationship with the meal table.
+
+The schema of an user must have the following fields:
+```elixir
+# User
+{
+	id: id,
+	name: name,
+	cpf: cpf,
+	email: email
+}
+```

@@ -5,10 +5,13 @@ defmodule ExmealWeb.MealsControllerTest do
 
   describe "create/2" do
     test "when all params are valid, creates a meal", %{conn: conn} do
+      insert(:user)
+
       params = %{
         "description" => "Banana",
         "date" => "2021-01-01 23:00:07",
-        "calories" => 50
+        "calories" => 50,
+        "user_id" => "1a7bed00-df7a-4def-99dd-091324c1b8e5"
       }
 
       response =
@@ -41,7 +44,8 @@ defmodule ExmealWeb.MealsControllerTest do
 
       expected_response = %{
         "message" => %{
-          "calories" => ["must be greater than or equal to 0"]
+          "calories" => ["must be greater than or equal to 0"],
+          "user_id" => ["can't be blank"]
         }
       }
 
