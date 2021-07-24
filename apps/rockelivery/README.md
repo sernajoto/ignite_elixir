@@ -14,4 +14,4 @@ Continuing in Phoenix, evolving in business rules.
 
 **Chapter IV - Module 6**
 
-Consuming external APIs.
+Consuming external APIs and mock tests.

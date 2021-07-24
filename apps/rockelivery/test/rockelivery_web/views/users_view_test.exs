@@ -17,7 +17,7 @@ defmodule RockeliveryWeb.UsersViewTest do
              user: %User{
                address: "Rua dos Testes, 42",
                age: 24,
-               cep: "12345678",
+               cep: "18078344",
                cpf: "12345678901",
                email: "gui@teste.com",
                id: "249a7ca0-0442-4eab-a574-445d8e1005dc",
@@ -39,7 +39,7 @@ defmodule RockeliveryWeb.UsersViewTest do
              user: %User{
                address: "Rua dos Testes, 42",
                age: 24,
-               cep: "12345678",
+               cep: "18078344",
                cpf: "12345678901",
                email: "gui@teste.com",
                id: "249a7ca0-0442-4eab-a574-445d8e1005dc",
