@@ -11,3 +11,7 @@ Must create other tests with the goal of completing 100% coverage of Excoveralls
 **Chapter IV - Module 5**
 
 Continuing in Phoenix, evolving in business rules.
+
+**Chapter IV - Module 6**
+
+Consuming external APIs.
