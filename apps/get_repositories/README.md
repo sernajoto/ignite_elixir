@@ -9,3 +9,7 @@ For each user repository, you should only return the following fields from the A
 **Chapter IV - Module 6 - Challenge 02**
 
 Must test the client created in the previous challenge using the bypass lib.
+
+**Chapter V - Module 7 - Challenge 01**
+
+Must add a user entity with just `id` and `password`. Afterwards, authentication with JWT token must be added using the created user `id` and `password`. When calling the route that lists a user's repositories, it will also be necessary to send the JWT token of a user who authenticated in the application.

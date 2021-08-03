@@ -10,6 +10,18 @@ use Mix.Config
 config :get_repositories,
   ecto_repos: [GetRepositories.Repo]
 
+config :get_repositories, GetRepositories.Repo,
+  migration_primary_key: [type: :binary_id],
+  migration_foreign_key: [type: :binary_id]
+
+config :get_repositories, GetRepositoriesWeb.Auth.Guardian,
+  issuer: "get_repositories",
+  secret_key: "RHis9NmmDkthAEyYKQc0vcWnqHpMX3hZGFqYLqwhLvlR9Gk1uQw2Qk+O/39Z30MK"
+
+config :get_repositories, GetRepositoriesWeb.Auth.Pipeline,
+  module: GetRepositoriesWeb.Auth.Guardian,
+  error_handler: GetRepositoriesWeb.Auth.ErrorHandler
+
 # Configures the endpoint
 config :get_repositories, GetRepositoriesWeb.Endpoint,
   url: [host: "localhost"],

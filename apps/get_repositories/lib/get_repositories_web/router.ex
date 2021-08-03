@@ -1,14 +1,30 @@
 defmodule GetRepositoriesWeb.Router do
   use GetRepositoriesWeb, :router
 
+  alias GetRepositoriesWeb.Plugs.UUIDChecker
+
   pipeline :api do
     plug :accepts, ["json"]
+    plug UUIDChecker
+  end
+
+  pipeline :auth do
+    plug GetRepositoriesWeb.Auth.Pipeline
+  end
+
+  scope "/api", GetRepositoriesWeb do
+    pipe_through [:api, :auth]
+
+    get "/users/:username/repositories", RepositoriesController, :get_user_repositories
+
+    get "/users/:id", UsersController, :show
   end
 
   scope "/api", GetRepositoriesWeb do
     pipe_through :api
 
-    get "/users/:username/repositories", RepositoriesController, :get_user_repositories
+    post "/users/", UsersController, :create
+    post "/users/signin", UsersController, :sign_in
   end
 
   # Enables LiveDashboard only for development
