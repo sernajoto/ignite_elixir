@@ -5,6 +5,21 @@ defmodule RockeliveryWeb.UsersControllerTest do
   import Rockelivery.Factory
 
   alias Rockelivery.ViaCep.ClientMock
+  alias RockeliveryWeb.Auth.Guardian
+
+  setup %{conn: conn} do
+    user =
+      insert(:user, %{
+        id: "349a7ca0-0442-4eab-a574-445d8e1005dc",
+        cpf: "22345678901",
+        email: "auth@test.com"
+      })
+
+    {:ok, token, _claims} = Guardian.encode_and_sign(user)
+    conn = put_req_header(conn, "authorization", "Bearer #{token}")
+
+    {:ok, conn: conn}
+  end
 
   describe "create/2" do
     test "when all params are valid, creates the user", %{conn: conn} do

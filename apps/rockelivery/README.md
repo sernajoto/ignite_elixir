@@ -15,3 +15,7 @@ Continuing in Phoenix, evolving in business rules.
 **Chapter IV - Module 6**
 
 Consuming external APIs and mock tests.
+
+**Chapter V - Module 7**
+
+Adding authentication with JWT tokens with the Guardian lib.
