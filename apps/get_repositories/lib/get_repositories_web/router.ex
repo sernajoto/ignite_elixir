@@ -24,7 +24,7 @@ defmodule GetRepositoriesWeb.Router do
     pipe_through :api
 
     post "/users/", UsersController, :create
-    post "/users/signin", UsersController, :sign_in
+    post "/users/login", UsersController, :login
   end
 
   # Enables LiveDashboard only for development

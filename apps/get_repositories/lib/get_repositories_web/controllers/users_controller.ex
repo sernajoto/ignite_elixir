@@ -7,27 +7,27 @@ defmodule GetRepositoriesWeb.UsersController do
   action_fallback FallbackController
 
   def create(conn, params) do
-    with {:ok, %User{} = user} <- GetRepositories.create_user(params),
-         {:ok, token, _claims} <- Guardian.encode_and_sign(user) do
+    with {:ok, %User{} = user} <- GetRepositories.create_user(params) do
       conn
       |> put_status(:created)
-      |> render("create.json", token: token, user: user)
+      |> render("create.json", user: user)
     end
   end
 
   def show(conn, %{"id" => id}) do
-    with {:ok, %User{} = user} <- GetRepositories.get_user_by_id(id) do
+    with {:ok, %User{} = user} <- GetRepositories.get_user_by_id(id),
+         {:ok, new_token} <- Guardian.refresh_token(conn) do
       conn
       |> put_status(:ok)
-      |> render("user.json", user: user)
+      |> render("user.json", user: user, new_token: new_token)
     end
   end
 
-  def sign_in(conn, params) do
+  def login(conn, params) do
     with {:ok, token} <- Guardian.authenticate(params) do
       conn
       |> put_status(:ok)
-      |> render("sign_in.json", token: token)
+      |> render("login.json", token: token)
     end
   end
 end
