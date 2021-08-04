@@ -19,3 +19,7 @@ Consuming external APIs and mock tests.
 **Chapter V - Module 7**
 
 Adding authentication with JWT tokens with the Guardian lib.
+
+**Chapter V - Module 8**
+
+Learning some OTP. A GenServer will be created to run periodic tasks.
