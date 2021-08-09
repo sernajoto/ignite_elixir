@@ -23,3 +23,7 @@ Adding authentication with JWT tokens with the Guardian lib.
 **Chapter V - Module 8**
 
 Learning some OTP. A GenServer will be created to run periodic tasks.
+
+**Chapter VI - Module 9**
+
+Deploying the application and learning Github Actions.
