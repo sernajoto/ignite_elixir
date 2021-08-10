@@ -16,6 +16,8 @@ defmodule Exmeal.DataCase do
 
   use ExUnit.CaseTemplate
 
+  alias Ecto.Adapters.SQL.Sandbox
+
   using do
     quote do
       alias Exmeal.Repo
@@ -28,10 +30,10 @@ defmodule Exmeal.DataCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Exmeal.Repo)
+    :ok = Sandbox.checkout(Exmeal.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Exmeal.Repo, {:shared, self()})
+      Sandbox.mode(Exmeal.Repo, {:shared, self()})
     end
 
     :ok
