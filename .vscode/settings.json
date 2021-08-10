@@ -2,6 +2,5 @@
   "elixirLS.dialyzerEnabled": false,
   "elixirLS.suggestSpecs": false,
   "elixir.credo.strictMode": true,
-  "elixir.credo.lintEverything": true,
-  "elixir.credo.configurationFile": "./credo.exs"
+  "elixir.credo.lintEverything": true
 }
