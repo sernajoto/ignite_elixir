@@ -27,3 +27,7 @@ Learning some OTP. A GenServer will be created to run periodic tasks.
 **Chapter VI - Module 9**
 
 Deploying the application and learning Github Actions.
+
+**Chapter VI - Module 9 - Challenge 01**
+
+Must configure the application's CI/CD with Github Actions and Gigalixir.
